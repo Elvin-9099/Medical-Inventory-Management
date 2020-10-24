@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/dashstyle.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Statistics
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-dark">
+                                <tr>
+                                    <td>Total Stock</td>
+                                    <td>Number of Brands</td>
+                                </tr>
+                                <tr>
+                                    {{#n1}}<td>{{sum}}</td>{{/n1}}
+                                    {{#n2}}<td>{{count}}</td>{{/n2}}
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Funtions
+                        </div>
+                        <div class="card-body">
+                            <a href= "/add" class="btn btn-primary">Add Medicine</a>
+                            <a href= "/meds" class="btn btn-primary">Edit Medicine</a>
+                            <a href= "/meds" class="btn btn-primary">List of Medicines</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

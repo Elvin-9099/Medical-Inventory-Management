@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Meds Page</h1>
-        <table>
-        {{#rows}}
-            <tr>
-                <td>{{mid}}</td>
-                <td>{{name}}</td>
-                <td>{{count}}</td>
-                <td>{{brand}}</td>
-                <td>
-                    <form action="/meds/delete/{{mid}}" method="post">
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        {{/rows}}
-        </table>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Meds Page</h1>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Medicine ID</th>
+                                <th scope="col">Medicine</th>
+                                <th scope="col">Count</th>
+                                <th scope="col">Brand</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Edit</th>
+                            </tr>
+                        </thead>
+                        {{#rows}}
+                            <tr>
+                                <td>{{mid}}</td>
+                                <td>{{name}}</td>
+                                <td>{{count}}</td>
+                                <td>{{brand}}</td>
+                                <td>
+                                    <form action="/meds/delete/{{mid}}" method="post">
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" href="/meds/edit/{{mid}}">Edit</a>
+                                </td>
+                            </tr>
+                        {{/rows}}
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
