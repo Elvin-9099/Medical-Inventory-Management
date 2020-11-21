@@ -6,11 +6,10 @@
     <body>
         <h1>Meds Form</h1>
 
-        <form class="" action="/meds/edit{{med.id}}" method="post">
-            <input type="text" name="med.mid" placeholder="Medicine ID"/>
-            <input type="text" name="med.name" placeholder="Medicine Name"/>
-            <input type="text" name="med.count" placeholder="Count"/>
-            <input type="text" name="med.brand" placeholder="Brand"/>
+        <form class="" action="/meds/edit/{{med.mid}}" method="post">
+            <input type="text" name="mname" value="{{med.mname}}" placeholder="Medicine Name"/>
+            <input type="text" name="count" value="{{med.count}}" placeholder="Count"/>
+            <input type="text" name="brand" value="{{med.brand}}" placeholder="Brand"/>
             <button type="submit">Save</button>
         </form> 
     </body>
