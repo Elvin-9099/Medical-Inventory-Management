@@ -55,7 +55,7 @@ app.post('/meds/add',(req,res)=>{
         .then(()=>{
             console.log('Connection Complete');
             const sql = 'INSERT INTO meds VALUES($1,$2,$3,$4)';
-            const params = [req.body.mid,req.body.name,req.body.count,req.body.brand];
+            const params = [req.body.mid,req.body.mname,req.body.count,req.body.brand];
             return client.query(sql,params);
         })
         .then((result)=>{
@@ -87,8 +87,7 @@ app.post('/meds/delete/:id',(req,res)=>{
 })
 
 //Get method for edit
-/*
-app.post('/meds/edit/:id',(req,res)=>{
+app.get('/meds/edit/:id',(req,res)=>{
     const client = new Client({
 
         user: 'postgres',
@@ -100,20 +99,18 @@ app.post('/meds/edit/:id',(req,res)=>{
     client.connect()
     .then(()=>{
         const sql = 'SELECT * FROM meds WHERE mid=$1';
-        const params = [req.body.mid];
-        client.query(sql,params);
+        const params = [req.params.id];
+        return client.query(sql,params);
         
     })
     .then((results)=>{
         console.log('Edit Query');
         console.log('results?',results);
-        //res.render('medsedit',{med:results.rows[0]});
+        res.render('medsedit',{med:results.rows[0]});
     });
 
 })
-*/
 
-/*
 app.post('/meds/edit/:id',(req,res)=>{
     const client = new Client({
 
@@ -125,8 +122,8 @@ app.post('/meds/edit/:id',(req,res)=>{
     });
     client.connect()
     .then(()=>{
-        const sql = 'UPDATE meds SET mid=$1,name=$2,count=$3,brand=$4 WHERE mid=$5';
-        const params = [req.body.mid,req.body.name,req.body.count,req.body.brand,req.params.id];
+        const sql = 'UPDATE meds SET mname=$1,count=$2,brand=$3 WHERE mid=$4';
+        const params = [req.body.mname,req.body.count,req.body.brand,req.params.id];
         client.query(sql,params);
         
     })
@@ -134,7 +131,7 @@ app.post('/meds/edit/:id',(req,res)=>{
         res.redirect('/meds');
     });
 })
-*/
+
 
 //Dashboard
 app.get('/dashboard',(req,res)=>{
@@ -178,9 +175,13 @@ app.get('/dashboard',(req,res)=>{
 });
 */
 
+//Index Page
+app.get('/index',(req,res)=>{
+    res.render('index');
+});
 
 //Running server on port 5001
-app.listen(5001,()=>{
-    console.log('Listening to port 5001');
+app.listen(5002,()=>{
+    console.log('Listening to port 5002');
 });
 
